@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f386694fd700e474d85805c8ff1a4bc7, type: 3}
+  m_Name: AIServerConfig
+  m_EditorClassIdentifier: 
+  audioWebSocketUrl: ws://221.163.19.142:58026/ws/audio
+  triggerWebSocketUrl: ws://221.163.19.142:58026/ws/trigger
+  maxRetryAttempts: 3
+  retryDelay: 2
+  connectionTimeout: 10
+  sampleRate: 16000
+  maxRecordDuration: 10

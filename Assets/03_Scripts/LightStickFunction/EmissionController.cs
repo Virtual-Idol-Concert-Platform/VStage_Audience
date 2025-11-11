@@ -12,14 +12,6 @@ public class EmissionController : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private EmissionConfig emissionConfig;
 
-    [Header("Emission 매핑")]
-    [Tooltip("이 속도 이상은 풀 밝기")]
-    public float maxSpeed = 1f;
-    [Tooltip("풀 밝기일 때 Emission 컬러 강도")]
-    public float maxIntensity = 4f;
-    [Tooltip("머티리얼에 설정된 베이스 Emission 컬러")]
-    public Color baseEmissionColor = Color.cyan;
-
     Material _mat;
 
     void Awake()
