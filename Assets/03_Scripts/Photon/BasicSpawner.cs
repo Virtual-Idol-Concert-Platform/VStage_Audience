@@ -4,6 +4,7 @@ using Fusion;
 using Fusion.Sockets;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using VStage.Core.Config;
 
 /// <summary>
 /// Photon Fusion을 사용한 기본 네트워크 스포너 클래스
@@ -18,6 +19,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     // Host 플레이어의 아바타 프리팹 참조 (Inspector에서 설정)
     [SerializeField] private NetworkPrefabRef _hostAvatarPrefab;
     
+    [Header("Configuration")]
+    [SerializeField] private NetworkConfig networkConfig;
     // 현재 스폰된 Host 아바타 오브젝트의 참조
     private NetworkObject _hostAvatarObject;
 
@@ -44,10 +47,10 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         // 지정된 게임 모드와 세션 이름으로 게임 시작 또는 참가
         await _runner.StartGame(new StartGameArgs()
         {
-            GameMode = mode,              // Host, Client, Server 등의 모드
-            SessionName = "TestRoom",     // 세션 이름 (같은 이름의 룸에 참가)
-            Scene = scene,                // 로드할 씬
-            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>() // 기본 씬 매니저 추가
+            GameMode = mode,
+            SessionName = networkConfig != null ? networkConfig.defaultRoomName : "TestRoom", 
+            Scene = scene,
+            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
         });
     }
     

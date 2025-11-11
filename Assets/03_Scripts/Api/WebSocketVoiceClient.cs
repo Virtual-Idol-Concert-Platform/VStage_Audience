@@ -1,16 +1,15 @@
 using System;
 using System.Collections;
 using System.Text;
-using System.Collections.Generic;
 using UnityEngine;
 using NativeWebSocket;
 using Newtonsoft.Json;
+using VStage.Core.Config;
 
 public class WebSocketVoiceClient : MonoBehaviour
 {
-    [Header("AI 서버 연결 설정")]
-    public string audioWebSocketUrl = "ws://221.163.19.142:58026/ws/audio";
-    public string triggerWebSocketUrl = "ws://221.163.19.142:58026/ws/trigger";
+    [Header("Configuration")]
+    [SerializeField] private AIServerConfig aiServerConfig;
 
     [Header("호스트 전용 설정")]
     [Tooltip("호스트만 체크하세요. 키워드 데이터를 받을 클라이언트만 체크")]
@@ -29,8 +28,14 @@ public class WebSocketVoiceClient : MonoBehaviour
 
     async void ConnectWebSockets()
     {
-        audioSocket = new WebSocket(audioWebSocketUrl);
-        triggerSocket = new WebSocket(triggerWebSocketUrl);
+        if (aiServerConfig == null)
+        {
+            Debug.LogError("[WebSocketVoiceClient] AIServerConfig is not assigned!");
+            return;
+        }
+
+        audioSocket = new WebSocket(aiServerConfig.audioWebSocketUrl);
+        triggerSocket = new WebSocket(aiServerConfig.triggerWebSocketUrl);
 
         audioSocket.OnOpen += () => Debug.Log("[Audio WebSocket] 연결 성공");
         audioSocket.OnError += (e) => Debug.LogError("[Audio WebSocket Error] " + e);

@@ -1,16 +1,12 @@
-using System.Collections.Generic;
-using System.Linq;
 using Fusion;
 using UnityEngine;
 using UnityEngine.Playables;
+using VStage.Core.Config;
 
 public class PerformanceController : NetworkBehaviour
 {
-    [Header("AI 음성 송신 트리거 타임(초)")] 
-    public float aiSendTriggerTime = 33f;
-    
-    [Header("AI 텍스트 표시 타이밍(초)")]
-    public float aiDisplayTime = 34f;
+    [Header("Configuration")]
+    [SerializeField] private PerformanceTimingConfig timingConfig;
 
     [Networked] public int ShowStartNetworkTick { get; set; }
     private bool isShowStartedLocally = false;
@@ -83,7 +79,7 @@ public class PerformanceController : NetworkBehaviour
             }
 
             // 33초에 AI 서버에 키워드 분석 요청 (호스트만 gauge_full 신호)
-            if (!aiSendRequestDone && elapsedSec >= aiSendTriggerTime && HasStateAuthority)
+            if (!aiSendRequestDone && elapsedSec >=  timingConfig.aiAnalysisTriggerTime && HasStateAuthority)
             {
                 aiSendRequestDone = true;
                 Debug.Log("33초 도달 - Host가 AI 서버에 키워드 분석 요청!");
@@ -100,7 +96,7 @@ public class PerformanceController : NetworkBehaviour
             }
 
             // 39초에 AI 텍스트 표시 RPC (Host가 모든 클라이언트에게 전송)
-            if (!aiDisplayDone && elapsedSec >= aiDisplayTime && HasStateAuthority)
+            if (!aiDisplayDone && elapsedSec >= timingConfig.aiDisplayTime && HasStateAuthority)
             {
                 aiDisplayDone = true;
                 Debug.Log("AI 텍스트 표시 RPC 전송!");

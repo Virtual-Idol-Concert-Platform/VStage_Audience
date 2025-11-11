@@ -1,4 +1,6 @@
 using UnityEngine;
+using VStage.Core.Config;
+using VStage.Core.Constants;
 
 [RequireComponent(typeof(Renderer))]
 public class EmissionController : MonoBehaviour
@@ -6,6 +8,9 @@ public class EmissionController : MonoBehaviour
     [Header("속도 추적")]
     [Tooltip("VelocityEstimator가 붙어 있는 오브젝트 참조")]
     public VelocityEstimator velocityEstimator;
+    
+    [Header("Configuration")]
+    [SerializeField] private EmissionConfig emissionConfig;
 
     [Header("Emission 매핑")]
     [Tooltip("이 속도 이상은 풀 밝기")]
@@ -32,18 +37,16 @@ public class EmissionController : MonoBehaviour
         
         // 1) 추정 속도 가져오기
         float speed = velocityEstimator.GetVelocityEstimate().magnitude;
-        // Debug.Log($"[Shake Speed] {speed:F2} m/s");
 
         // 2) 0~1 정규화
-        float t = Mathf.Clamp01(speed / maxSpeed);
+        float t = Mathf.Clamp01(speed / emissionConfig.maxSpeed);
 
         // 3) Emission 강도 계산
-        float intensity = t * maxIntensity;
-        Color emitCol = baseEmissionColor * intensity;
+        float intensity = t * emissionConfig.maxIntensity;
+        Color emitCol = emissionConfig.baseEmissionColor * intensity;
 
-        // 4) 머티리얼에 적용
-        _mat.SetColor("_EmissionColor", emitCol);
-        if (intensity > 0f) _mat.EnableKeyword("_EMISSION");
-        else                _mat.DisableKeyword("_EMISSION");
+        _mat.SetColor(AnimationConstants.SHADER_EMISSION_COLOR, emitCol);
+        if (intensity > 0f) _mat.EnableKeyword(AnimationConstants.SHADER_EMISSION_KEYWORD);
+        else                _mat.DisableKeyword(AnimationConstants.SHADER_EMISSION_KEYWORD);
     }
 }
