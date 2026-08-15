@@ -10,19 +10,16 @@
 
 **Unity · Meta Quest 3 기반 Audience XR Interaction Client**
 
+🏆 **가상융합서비스개발자경진대회 우수상** · 오프라인 전시 시연 <sub>(연도·주최 확인 중 — 자세한 내용은 [Award · Exhibition](#award--exhibition))</sub>
+
 <br>
 
-<!-- TODO: replace FULL_DEMO_VIDEO_URL with the YouTube URL -->
-<div align="center">
-<a href="FULL_DEMO_VIDEO_URL">
-  <img src="./docs/hero/full-demo-thumbnail1.png.png" width="390" alt="VStage Full Demo thumbnail 1">
-</a>
-<a href="FULL_DEMO_VIDEO_URL">
-  <img src="./docs/hero/full-demo-thumbnail2.png.png" width="390" alt="VStage Full Demo thumbnail 2">
-</a>
-</div>
+<img src="./docs/hero/full-demo-thumbnail1.png.png" width="390" alt="VStage Full Demo thumbnail 1">
+<img src="./docs/hero/full-demo-thumbnail2.png.png" width="390" alt="VStage Full Demo thumbnail 2">
 
-### ▶ Full Demo Video
+<sub>실제 공연 장면 · 전체 데모 영상은 준비 중입니다</sub>
+
+<br><br>
 
 ![Unity](https://img.shields.io/badge/Unity-6000.1.2f1-000000?style=flat-square\&logo=unity\&logoColor=white)
 ![CSharp](https://img.shields.io/badge/C%23-512BD4?style=flat-square\&logo=csharp\&logoColor=white)
@@ -35,112 +32,22 @@
 
 ---
 
-# Award · Exhibition
-
-VStage는 팀 개발 과정에서 XR 공연 기능을 구현하고, 경진대회와 오프라인 전시를 통해 사용자에게 시연한 프로젝트입니다.
-
-## 가상융합서비스개발자경진대회 우수상
-
-<!-- Asset: docs/achievements/award.jpg -->
-<!-- TODO: 정확한 연도·주최/주관·부문·수상일·관련 기사 확인 -->
-
-<div align="center">
-<img src="./docs/achievements/award.jpg" width="700" alt="가상융합서비스개발자경진대회 우수상">
-</div>
-
-> **가상융합서비스개발자경진대회 우수상**
->
-> TODO: 어떤 기술적 가치와 사용자 경험을 평가받았는지 1~2문장 추가
-
-| 항목 | 내용 |
-| --- | --- |
-| 대회 | 가상융합서비스개발자경진대회 |
-| 수상 | 우수상 |
-| 연도 | TODO |
-| 주최 / 주관 | TODO |
-| 출품 프로젝트 | VStage |
-| 관련 링크 | [수상 관련 기사 / 공식 페이지](NEWS_OR_AWARD_URL) |
-
-## Exhibition
-
-<!-- Asset: docs/achievements/exhibition-booth.jpg -->
-<div align="center">
-<img src="./docs/achievements/exhibition-booth.jpg" width="700" alt="VStage 전시 부스">
-</div>
-
-VStage의 XR 콘서트 시스템을 직접 체험할 수 있도록 오프라인 전시 부스를 운영하고 관람객 대상 시연을 진행했습니다.
-
-<!-- TODO: 전시 행사명·장소·운영 기간·체험 방식·담당 역할 -->
-
-* [전시 관련 뉴스](EXHIBITION_NEWS_URL)
-* [행사 공식 페이지](EVENT_URL)
-
----
-
-# Development Journey
-
-VStage는 하나의 저장소에서 한 번에 완성된 프로젝트가 아니라, Vision Pro feasibility R&D, Quest 3 전환, Audience 기능 통합을 거치며 발전했습니다. 아래 평가는 Git history의 개발 단계에 기반한 정리입니다. 각 평가 썸네일을 클릭하면 해당 YouTube 영상으로 이동합니다.
-
-| 단계 | 영상 자리 | 단계별 변화 |
-| --- | --- | --- |
-| 1차 평가 | [![1차 평가](./docs/evolution/evaluation-1.png)](YOUTUBE_EVALUATION_1_URL) | Vision Pro/PolySpatial 기반 XR·파티클·UI·마이크 prototype |
-| 2차 평가 | [![2차 평가](./docs/evolution/evaluation-2.png)](YOUTUBE_EVALUATION_2_URL) | Android/Quest 3 전환, XR Hands 제스처, 음성·응원봉 Interaction |
-| 3차 평가 | [![3차 평가](./docs/evolution/evaluation-3.png)](YOUTUBE_EVALUATION_3_URL) | AI Host Relay, 꽃 VFX, 키워드 UI, 공연 기능 통합 |
-
-## 1차 평가 — XR Concert Prototype
-
-`VStage_vp`에서 PolySpatial·visionOS XR Plugin·XR Hands 환경을 조사하고, Volume Camera·파티클·UI·마이크 prototype을 검증했습니다.
-
-* `eeaef0b`: Apple visionOS XR Plugin 설치
-* `021f21e`: PolySpatial 패키지 설치
-* `cca61c7`: PolySpatial sample 빌드 테스트 성공 기록
-
-Vision Pro prototype의 손 입력 스크립트는 실제 관절 좌표 처리보다 `Submit`, 마우스, Space 입력을 이용한 feasibility test에 가깝습니다.
-
-## 2차 평가 — Quest 3 Platform Transition & Interaction
-
-`VStage_quest3`에서 VisionOS/PolySpatial 구조를 제거하고 Android·Oculus·Meta OpenXR 기반으로 전환했습니다.
-
-* `c18a6a1`: Vision Pro 패키지 삭제
-* `e40190e`: PolySpatial 파일 제거 및 Oculus Loader 전환
-* `11ef239`: Android 플랫폼 전환
-* `6a92551`: Meta OpenXR 및 Quest 설정
-* `6065d32`, `9325f27`: Quest Hand Gesture 연결 및 정상화
-
-이 단계에서 컨트롤러 중심 prototype을 Quest 3 관객용 손 추적, 마이크, 응원봉 Interaction으로 구체화했습니다.
-
-## 3차 평가 — Integrated Audience Experience
-
-`VStage_quest3_public`과 현재 Audience main에서는 기능을 통합했습니다.
-
-* Audience 음성을 PCM 16-bit WAV로 변환해 Audio WebSocket으로 전송
-* Host가 Trigger WebSocket의 keyword/emotion JSON을 수신
-* Photon RPC로 AI 데이터를 Client에 전달
-* 응원봉 속도에 따른 Emission Feedback
-* 녹음 종료와 꽃·파티클 VFX 연결
-* 키워드 순차 표시 및 감정 색상 UI
-
-<!-- TODO: 3차 평가에서 실제로 시연한 기능과 영상 링크 확인 -->
-
----
-
 # Contents
 
 1. [Project Overview](#project-overview)
-2. [Team Members & Roles](#team-members--roles)
-3. [My Contribution](#my-contribution)
-4. [XR Platform R&D](#xr-platform-rd)
+2. [My Contribution](#my-contribution)
+3. [Development Journey](#development-journey)
+4. [Team Members & Roles](#team-members--roles)
 5. [Technology Stack](#technology-stack)
 6. [System Architecture](#system-architecture)
 7. [AI Communication Sequence](#ai-communication-sequence)
-8. [Audience User Scenario](#audience-user-scenario)
-9. [Audience Experience](#audience-experience)
-10. [Key Features](#key-features)
-11. [Technical Challenges](#technical-challenges)
-12. [Core Code](#core-code)
-13. [Project Structure](#project-structure)
-14. [Development Environment](#development-environment)
-15. [Related Repository / Notice](#related-repository--notice)
+8. [Technical Challenges](#technical-challenges)
+9. [Core Code](#core-code)
+10. [Project Structure](#project-structure)
+11. [Development Environment](#development-environment)
+12. [Known Limitations](#known-limitations)
+13. [Award · Exhibition](#award--exhibition)
+14. [Related Repository / Notice](#related-repository--notice)
 
 ---
 
@@ -183,6 +90,181 @@ Audience UI · Recording Feedback VFX
 
 ---
 
+# My Contribution
+
+기존 팀의 XR·Photon·아바타 기반 위에, 관객이 실제 공연에 참여할 수 있는 아래 5가지 기능을 직접 설계·구현했습니다.
+
+<table>
+<tr>
+<td width="280" valign="top">
+
+<!-- TODO: docs/features/hand-interaction.gif -->
+<div align="center"><sub>스크린샷/GIF 준비 중</sub></div>
+
+</td>
+<td valign="top">
+
+### 01. XR Hands Gesture Interaction
+
+컨트롤러 버튼 없이 손 모양만으로 마이크·응원봉을 사용할 수 있어야 했습니다.
+
+* OpenXR / Unity XR Hands Tracking Event 연구 및 연결
+* Hand Shape/Pose 조건 또는 관절 거리(10~35cm) 기반 판정
+* Hold Time 0.2초, 검사 간격 0.1초로 순간적인 추적 오차에 의한 오검출 방지
+* `GesturePerformed` / `GestureEnded` UnityEvent 분리로 마이크·응원봉 Component에 연결
+
+`Assets/03_Scripts/HandGesture.cs` · `Assets/03_Scripts/Gestures/StaticHandGesture.cs`
+
+</td>
+</tr>
+<tr>
+<td width="280" valign="top">
+
+<!-- TODO: docs/features/voice-recording.gif -->
+<div align="center"><sub>스크린샷/GIF 준비 중</sub></div>
+
+</td>
+<td valign="top">
+
+### 02. Voice Recording & WAV Pipeline
+
+제스처 시작·종료 시점에 맞춰 실제 발화 구간만 잘라 AI 서버로 보내야 했습니다.
+
+* `Microphone.Start` 기반 녹음, `Microphone.GetPosition`으로 실제 녹음 구간 추출
+* PCM 16-bit WAV header 및 byte array 생성
+* NativeWebSocket Binary message로 Audio WebSocket 전송
+* `HandGesture` 경로는 `MicComponent`, `StaticHandGesture` 경로는 `RecordingManager`로 각각 연결되어 있으며 `App_Final`에서는 `HandGesture`/`MicComponent` 경로가 중심 흐름입니다
+
+`Assets/03_Scripts/MicRecordFunction/MicComponent.cs` · `Assets/03_Scripts/RecordingManager.cs` · `Assets/03_Scripts/Api/WebSocketVoiceClient.cs`
+
+</td>
+</tr>
+<tr>
+<td width="280" valign="top">
+
+<!-- TODO: docs/features/ai-relay.png -->
+<div align="center"><sub>스크린샷/GIF 준비 중</sub></div>
+
+</td>
+<td valign="top">
+
+### 03. Host-based AI Relay
+
+여러 관객 Client가 각자 AI 서버에 요청하면 응답 시점과 결과가 사용자마다 달라지는 문제가 있었습니다. Host가 대표로 수신해 전체에 동일한 결과를 전파하는 구조로 정리했습니다.
+
+* Host가 Trigger WebSocket의 `keywords` / `emotions` JSON 수신 및 파싱
+* `AIResponseStore`에 저장 후 `SendAIDataToAllClientsRPC`로 모든 Client에 전달
+* `DisplayAITextRPC`로 키워드 순차 표시 및 감정 색상 UI 갱신
+
+`Assets/03_Scripts/Api/AIResponseStore.cs` · `Assets/03_Scripts/Photon/PerformanceSync/PerformanceController.cs` · `Assets/03_Scripts/Api/TMP_PRO.cs`
+
+</td>
+</tr>
+<tr>
+<td width="280" valign="top">
+
+<!-- TODO: docs/features/lightstick-emission.gif -->
+<div align="center"><sub>스크린샷/GIF 준비 중</sub></div>
+
+</td>
+<td valign="top">
+
+### 04. Interactive Light Stick
+
+응원봉을 흔드는 행동이 아무 시각적 반응도 없으면 관객이 참여감을 느끼기 어렵습니다.
+
+* 손 위치를 Target으로 추적하고, 손을 놓으면 원래 Target으로 복귀
+* `VelocityEstimator`가 여러 프레임의 이동·회전 속도를 평균화
+* 속도를 0~1로 정규화해 `_EmissionColor` 강도로 변환
+
+`Assets/03_Scripts/LightStickComponent.cs` · `Assets/03_Scripts/LightStickFunction/VelocityEstimator.cs` · `Assets/03_Scripts/LightStickFunction/EmissionController.cs`
+
+</td>
+</tr>
+<tr>
+<td width="280" valign="top">
+
+<!-- TODO: docs/features/flower-vfx.gif -->
+<div align="center"><sub>스크린샷/GIF 준비 중</sub></div>
+
+</td>
+<td valign="top">
+
+### 05. Recording Feedback VFX
+
+음성을 보내는 것만으로는 관객이 자기 행동의 결과를 즉시 인지하기 어렵습니다. 녹음 종료를 무대 위의 시각적 결과로 되돌려주는 연출을 붙였습니다.
+
+* 녹음 종료 시 Energy Effect가 Flower Target으로 이동
+* 도착 시 `MaterialPropertyBlock` 기반 Emission/Particle 효과 실행
+* 다음 꽃으로 순차 점등 이어짐
+
+이 VFX는 AI Emotion 결과가 아니라 **Recording End Interaction Feedback**입니다.
+
+`Assets/03_Scripts/MicRecordFunction/RecordEndEffectComponent.cs` · `Assets/03_Scripts/MicRecordFunction/FlowerTarget.cs`
+
+</td>
+</tr>
+</table>
+
+> Photon Fusion 기본 Session, VRIK 전신 기반, 얼굴 트래킹 기반의 일부는 팀 공동 시스템입니다. 해당 기반 위에 위 5가지 기능을 확장·통합한 범위를 개인 기여로 설명합니다. Vision Pro → Meta Quest 3 플랫폼 전환 R&D 과정은 [Development Journey](#development-journey)에서 별도로 다룹니다.
+
+---
+
+# Development Journey
+
+VStage는 하나의 저장소에서 한 번에 완성된 프로젝트가 아니라, Vision Pro feasibility R&D, Quest 3 전환, Audience 기능 통합을 거치며 발전했습니다. 아래 평가는 Git history의 개발 단계에 기반한 정리입니다.
+
+| 단계 | 썸네일 | 단계별 변화 |
+| --- | --- | --- |
+| 1차 평가 | ![1차 평가](./docs/evolution/evaluation-1.png) | Vision Pro/PolySpatial 기반 XR·파티클·UI·마이크 prototype |
+| 2차 평가 | ![2차 평가](./docs/evolution/evaluation-2.png) | Android/Quest 3 전환, XR Hands 제스처, 음성·응원봉 Interaction |
+| 3차 평가 | ![3차 평가](./docs/evolution/evaluation-3.png) | AI Host Relay, 꽃 VFX, 키워드 UI, 공연 기능 통합 |
+
+<sub>단계별 영상은 준비 중입니다.</sub>
+
+## 1차 평가 — XR Concert Prototype (`VStage_vp`)
+
+PolySpatial·visionOS XR Plugin·XR Hands 환경을 조사하고, Volume Camera·파티클·UI·마이크 prototype을 검증했습니다.
+
+* `eeaef0b`: Apple visionOS XR Plugin 설치
+* `021f21e`: PolySpatial 패키지 설치
+* `cca61c7`: PolySpatial sample 빌드 테스트 성공 기록
+
+Vision Pro prototype의 손 입력 스크립트는 실제 관절 좌표 처리보다 `Submit`, 마우스, Space 입력을 이용한 feasibility test에 가깝습니다.
+
+## 2차 평가 — Quest 3 Platform Transition (`VStage_quest3`)
+
+VisionOS/PolySpatial 구조를 제거하고 Android·Oculus·Meta OpenXR 기반으로 전환했습니다. 단순 플랫폼 이름 변경이 아니라 패키지·Loader·Build Settings·Input 구성을 함께 변경한 작업입니다.
+
+* `c18a6a1`: Vision Pro 패키지 삭제
+* `e40190e`: PolySpatial 파일 제거 및 Oculus Loader 전환
+* `11ef239`: Android 플랫폼 전환
+* `6a92551`: Meta OpenXR 및 Quest 설정
+* `6065d32`, `9325f27`: Quest Hand Gesture 연결 및 정상화
+
+## 3차 평가 — Integrated Audience Experience (`VStage_quest3_public`)
+
+[My Contribution](#my-contribution)의 5가지 기능이 하나의 흐름으로 통합된 단계입니다. Audience 음성 → WAV → AI Trigger → Host Relay → 키워드 UI, 응원봉 Emission, Recording Feedback VFX가 이 시점에 함께 동작합니다.
+
+## Vision Pro vs Meta Quest 3
+
+<div align="center">
+<img src="./docs/rnd/vision-pro-hand-tracking-test1.png" width="230" alt="Vision Pro hand tracking R&D test 1">
+<img src="./docs/rnd/vision-pro-hand-tracking-test2.png" width="230" alt="Vision Pro hand tracking R&D test 2">
+<img src="./docs/rnd/vision-pro-xcode.png" width="230" alt="Vision Pro R&D Xcode build test">
+<img src="./docs/rnd/quest3.png" width="230" alt="Meta Quest 3 R&D">
+</div>
+
+| Apple Vision Pro | Meta Quest 3 |
+| --- | --- |
+| PolySpatial / visionOS XR | Android / Meta OpenXR / Oculus |
+| XR Hands feasibility prototype | Quest Hand Tracking Interaction |
+| Volume Camera, UI, Particle, Microphone test | Audience 공연 기능 통합 |
+
+Vision Pro prototype의 실제 손 관절 구현과 전체 공연 실기기 완성, 실기기 테스트 횟수는 이 저장소만으로 확인 범위 밖입니다. 안전하게는 "Vision Pro용 PolySpatial 환경을 조사하고 파티클·UI·마이크·Volume Camera prototype을 검증한 뒤, 실제 공연 Interaction 요구에 맞춰 Quest 3로 전환했다" 정도로 설명합니다.
+
+---
+
 # Team Members & Roles
 
 VStage는 여러 저장소와 여러 작성자가 참여한 팀 프로젝트입니다. 아래 역할은 Git history와 팀에서 확인한 담당 영역을 기준으로 정리했습니다.
@@ -195,101 +277,6 @@ VStage는 여러 저장소와 여러 작성자가 참여한 팀 프로젝트입�
 | MinJuuu91923 | AI 서버 | AI 서버 개발 및 클라이언트 응답 연동 협의 |
 
 <!-- TODO: docs/team/member-01.jpg 등 팀원 사진·이름·역할·GitHub 링크 추가 -->
-
----
-
-# My Contribution
-
-기존 팀의 XR·Photon·아바타 기반 위에 Audience가 실제 공연에 참여할 수 있는 기능을 확장·통합했습니다.
-
-## 01. Vision Pro · Meta Quest 3 XR R&D
-
-Vision Pro와 Meta Quest 3를 대상으로 XR Runtime과 Hand Tracking 환경을 비교·연구하고, 관객용 앱에 적용하는 과정을 진행했습니다. Git history에서는 Vision Pro R&D에서 Quest 3 환경으로 확장되는 과정이 확인됩니다.
-
-* VisionOS/PolySpatial 패키지 제거
-* Android Build Target 전환
-* Oculus Loader 적용
-* Meta OpenXR 구성
-* Quest 3용 XR Hands Interaction 연결
-
-이는 단순 플랫폼 이름 변경이 아니라 패키지·Loader·Build Settings·Input 구성을 함께 변경한 작업입니다. 다만 Vision Pro에서 전체 공연을 완성했다거나 실기기 테스트 범위까지는 이 저장소만으로 주장하지 않습니다.
-
-## 02. OpenXR Hand Tracking 연구 및 Audience Interaction 적용
-
-* OpenXR / Unity XR Hands Tracking Event 연구 및 연결
-* Hand Shape/Pose 또는 관절 거리 기반 판정
-* Gesture Hold Time과 상태 전이 처리
-* 마이크·응원봉 Component 연결
-
-현재 `App_Final`에서 직접 연결되는 중심 스크립트는 `HandGesture.cs`이며, `StaticHandGesture.cs`는 별도의 거리 기반 구현·이전 연구 경로입니다.
-
-## 03. Microphone / WAV Processing
-
-* `Microphone.Start` 기반 녹음
-* `Microphone.GetPosition`을 이용한 실제 녹음 구간 추출
-* PCM 16-bit WAV header 및 byte array 생성
-* NativeWebSocket Binary message 전송
-
-## 04. AI WebSocket Integration
-
-AI 서버 개발 담당자와 응답 데이터의 수신 방식과 Unity 내 표현 방식을 협의하며 연동했습니다. Audience Client는 Audio WebSocket으로 WAV를 보내고, Host 경로에서는 Trigger WebSocket의 JSON 응답을 처리합니다. 외부 AI 서버 자체는 이 저장소의 구현 범위가 아닙니다.
-
-## 05. Host-based AI Relay
-
-* `keywords` / `emotions` JSON 파싱
-* Host의 `AIResponseStore` 저장
-* `SendAIDataToAllClientsRPC`를 통한 Client 전달
-* `DisplayAITextRPC`를 통한 키워드 UI 표시
-
-## 06. Light Stick Interaction
-
-* 손 위치 Target 추적
-* 손을 놓을 때 원래 Target으로 복귀
-* `VelocityEstimator`의 속도 평균화
-* 속도 → `_EmissionColor` 강도 변환
-
-## 07. Recording Feedback VFX
-
-녹음이 끝났을 때 Energy Effect가 Flower Target으로 이동하고 꽃 Emission/Particle 효과가 실행됩니다. 이 VFX는 AI Emotion 결과가 아니라 **Recording End Interaction Feedback**입니다.
-
-> Photon Fusion 기본 Session, VRIK 전신 기반, 얼굴 트래킹 기반의 일부는 팀 공동 시스템입니다. 해당 기반 위에 Audience 기능을 확장·통합한 범위를 개인 기여로 설명합니다.
-
----
-
-# XR Platform R&D
-
-<!-- TODO: replace VISION_PRO_RND_VIDEO_URL and QUEST3_RND_VIDEO_URL with YouTube URLs -->
-<div align="center">
-<a href="VISION_PRO_RND_VIDEO_URL">
-  <img src="./docs/rnd/vision-pro-hand-tracking-test1.png" width="390" alt="Vision Pro hand tracking R&D test 1">
-</a>
-<a href="VISION_PRO_RND_VIDEO_URL">
-  <img src="./docs/rnd/vision-pro-hand-tracking-test2.png" width="390" alt="Vision Pro hand tracking R&D test 2">
-</a>
-<a href="VISION_PRO_RND_VIDEO_URL">
-  <img src="./docs/rnd/vision-pro-xcode.png" width="390" alt="Vision Pro R&D Xcode build test">
-</a>
-<a href="QUEST3_RND_VIDEO_URL">
-  <img src="./docs/rnd/quest3.png" width="390" alt="Meta Quest 3 R&D">
-</a>
-</div>
-
-| Apple Vision Pro | Meta Quest 3 |
-| --- | --- |
-| PolySpatial / visionOS XR | Android / Meta OpenXR / Oculus |
-| XR Hands feasibility prototype | Quest Hand Tracking Interaction |
-| Volume Camera, UI, Particle, Microphone test | Audience 공연 기능 통합 |
-
-```mermaid
-flowchart LR
-    A["Vision Pro R&D"] --> B["PolySpatial / visionOS"]
-    B --> C["XR UI · Particle · Microphone Prototype"]
-    C --> D["Quest 3 Platform Migration"]
-    D --> E["Android / Oculus / Meta OpenXR"]
-    E --> F["Audience Hand Interaction"]
-```
-
-`VStage_vp`에서 PolySpatial과 visionOS 환경을 조사한 뒤 `VStage_quest3`에서 실제로 Android·Oculus·Meta OpenXR 구조로 전환했습니다. Vision Pro prototype의 실제 손 관절 구현과 전체 공연 실기기 완성은 확인 범위 밖입니다.
 
 ---
 
@@ -370,11 +357,11 @@ flowchart TD
     Mic -->|"Recording End"| Feedback
 ```
 
-AI 서버 내부의 STT·감정 분석·키워드 생성 알고리즘은 이 저장소에 포함되어 있지 않습니다.
+AI 서버 내부의 STT·감정 분석·키워드 생성 알고리즘은 이 저장소에 포함되어 있지 않습니다. 기본 Build Settings에서 활성화된 Audience 씬은 `Assets/01_Scenes/App_Final.unity`입니다.
 
 ---
 
-# AI Communication Sequence Diagram
+# AI Communication Sequence
 
 ```mermaid
 sequenceDiagram
@@ -411,196 +398,15 @@ Recording End → Energy Effect → Flower / Particle Feedback
 
 ---
 
-# Audience User Scenario
-
-```mermaid
-flowchart TD
-    A["VStage Audience 실행"] --> B["App_Final Scene"]
-    B --> C["Photon Client Join"]
-    C --> D["XR Hand Tracking"]
-    D --> E{"공연 Interaction"}
-
-    E --> F["Light Stick"]
-    F --> G["손으로 부착 및 이동"]
-    G --> H["Velocity 계산"]
-    H --> I["Emission Feedback"]
-    I --> J["Release 후 Target 복귀"]
-
-    E --> K["Microphone"]
-    K --> L["Recording Start"]
-    L --> M["Gesture Release / Stop"]
-    M --> N["WAV 변환 및 Audio WebSocket 전송"]
-    M --> O["Recording End Feedback VFX"]
-    O --> P["Flower / Particle Sequence"]
-
-    C --> Q["Host Performance Data"]
-    Q --> R["Keyword / Emotion RPC"]
-    R --> S["Audience UI 표시"]
-```
-
-기본 Build Settings에서 활성화된 Audience 씬은 `App_Final.unity`입니다. Waiting Room 및 테스트 씬은 프로젝트에 존재하지만 기본 실행 흐름으로 단정하지 않습니다.
-
----
-
-# Audience Experience
-
-## 01. Concert Experience
-
-<!-- TODO: docs/experience/concert.png -->
-<img src="./docs/experience/concert.png" width="800" alt="Concert Experience">
-
-가상 공연 공간에서 Host가 진행하는 공연과 다른 참가자의 상태를 함께 경험합니다.
-
-## 02. Hand Tracking
-
-<!-- TODO: docs/experience/hand-tracking.gif -->
-<img src="./docs/experience/hand-tracking.gif" width="700" alt="Hand Tracking">
-
-컨트롤러 입력에만 의존하지 않고 XR Hands로 마이크와 응원봉 Interaction을 시작합니다.
-
-## 03. Light Stick Interaction
-
-<!-- TODO: docs/experience/lightstick.gif -->
-<img src="./docs/experience/lightstick.gif" width="700" alt="Light Stick Interaction">
-
-응원봉 이동 속도를 시각적 Emission Feedback으로 연결합니다.
-
-## 04. Microphone Interaction
-
-<!-- TODO: docs/experience/microphone.gif -->
-<img src="./docs/experience/microphone.gif" width="700" alt="Microphone Interaction">
-
-손동작으로 마이크를 잡고 녹음한 뒤 외부 AI Audio WebSocket으로 음성을 전달합니다.
-
-## 05. Recording Feedback VFX
-
-<!-- TODO: docs/experience/flower-vfx.gif -->
-<img src="./docs/experience/flower-vfx.gif" width="700" alt="Flower Feedback VFX">
-
-녹음 종료 후 Energy Effect가 Flower Target으로 이동하고 꽃 Emission 및 Particle 효과가 실행됩니다.
-
-## 06. AI Keyword / Emotion
-
-<!-- TODO: docs/experience/ai-feedback.png -->
-<img src="./docs/experience/ai-feedback.png" width="700" alt="AI Keyword Emotion UI">
-
-Host가 전달한 Keyword/Emotion 데이터를 Audience UI에 표시합니다. AI Emotion이 Stage Lighting을 직접 제어한다고 설명하지 않습니다.
-
-## 07. Network Avatar
-
-<!-- TODO: docs/experience/network-avatar.gif -->
-<img src="./docs/experience/network-avatar.gif" width="700" alt="Network Avatar">
-
-Photon Fusion 기반 Network Data를 통해 공연 참가자에게 동일한 공연 상태를 전달합니다. Photon/VRIK 전체 기반은 팀 공동 시스템입니다.
-
----
-
-# Key Features
-
-## 01. XR Hands Interaction
-
-`HandGesture.cs`는 XR Hands의 Hand Shape/Pose 조건과 유지 시간을 이용해 제스처 상태를 판단하고 UnityEvent를 발생시킵니다. `StaticHandGesture.cs`에는 Middle Metacarpal과 Target Transform 사이의 10~35cm 거리 기반 별도 구현이 있습니다.
-
-* XR Hand Tracking Event
-* Hold Time: 0.2초
-* 검사 간격: 0.1초
-* Gesture Performed / Ended 분리
-* Microphone / Light Stick 연결
-
-<!-- TODO: docs/features/hand-interaction.gif -->
-
-## 02. Voice Recording & WAV Pipeline
-
-```text
-Palm / Gesture Interaction
-        ↓
-Microphone.Start (16 kHz)
-        ↓
-Microphone.GetPosition
-        ↓
-Actual Segment Extraction
-        ↓
-PCM 16-bit WAV
-        ↓
-Binary WebSocket
-```
-
-`MicComponent`가 녹음 종료 시 실제 구간을 추출하고 `WebSocketVoiceClient.TrySendWav()`에 byte array를 전달합니다.
-
-## 03. Interactive Light Stick
-
-```text
-Hand Movement
-      ↓
-VelocityEstimator
-      ↓
-Speed Normalization
-      ↓
-EmissionController
-      ↓
-Renderer.material _EmissionColor
-```
-
-`VelocityEstimator`는 여러 프레임의 이동·회전 속도를 평균화하고, `EmissionController`가 속도를 Emission 강도로 변환합니다.
-
-<!-- TODO: docs/features/lightstick-emission.gif -->
-
-## 04. AI Host Relay
-
-```text
-Audience Client ── WAV Binary ──> AI Audio WebSocket
-
-AI Trigger WebSocket ── JSON ──> Artist / Host
-Artist / Host ── Photon RPC ──> Audience Clients
-```
-
-Host는 `keywords`와 `emotions`를 파싱하고 `PerformanceController`를 통해 Client에 전달합니다. 외부 AI 서버의 내부 구현은 포함하지 않습니다.
-
-## 05. Recording Feedback VFX
-
-```text
-Recording End
-      ↓
-Energy Effect
-      ↓
-Flower Target
-      ↓
-MaterialPropertyBlock / Emission
-      ↓
-Next Flower Sequence
-```
-
-이 기능은 AI 결과가 아니라 녹음 종료를 관객에게 피드백하는 Interaction 연출입니다.
-
-<!-- TODO: docs/features/flower-vfx.gif -->
-
----
-
 # Technical Challenges
 
-## 01. Hand Tracking의 순간적인 오차
-
-손 관절을 매 프레임 단순 비교하면 추적 오차로 Interaction이 반복 실행될 수 있습니다. 검사 간격, 최소 Hold Time, 시작·종료 상태, 중복 실행 방지 플래그를 함께 사용했습니다.
-
-## 02. Client마다 다른 AI Event State
-
-각 Client가 AI 응답을 독립적으로 처리하면 응답 시점과 결과가 달라질 수 있습니다. Git history에서 Host 중심 응답 수신과 Photon RPC Relay 방향으로 변경한 흐름이 확인됩니다.
-
-```text
-AI Trigger Response → Host / State Authority → Photon RPC → Audience Clients
-```
-
-## 03. Network Avatar Calculation
-
-Client마다 VRIK를 실행하는 대신 Host에서 포즈를 계산하고 Client에서 수신한 Root/Bone 회전을 직접 적용하는 구조를 사용합니다. 구현 방식은 확인되지만 구체적인 성능 향상 수치는 측정 자료가 없으므로 기재하지 않습니다.
-
-## 04. 관객 입력에 대한 Feedback
-
-음성 전송만으로는 관객이 행동의 결과를 즉시 인지하기 어렵습니다. 녹음 종료 이벤트를 Energy Effect와 Flower Emission/Particle sequence로 연결해 입력과 시각적 결과의 인과관계를 표현했습니다.
-
-## 05. 플랫폼별 XR Runtime 차이
-
-VisionOS/PolySpatial에서 Android/Oculus/Meta OpenXR로 전환하면서 Package, Loader, Build Target, Input 설정을 함께 변경했습니다.
+| 문제 | 해결 방식 |
+| --- | --- |
+| Hand Tracking의 순간적인 오차로 Interaction이 반복 실행됨 | 검사 간격, 최소 Hold Time, 시작·종료 상태, 중복 실행 방지 플래그를 함께 사용 |
+| Client마다 AI 응답 시점·결과가 달라짐 | Host가 AI 응답을 대표 수신하고 Photon RPC로 전체 Client에 Relay (`AI Trigger Response → Host / State Authority → Photon RPC → Audience Clients`) |
+| Network 환경에서 전신 IK 계산 충돌 | Host에서만 VRIK 포즈를 계산하고, Client는 수신한 Root/Bone 회전값을 직접 적용 (구현 방식은 확인되나 성능 향상 수치는 별도 측정 자료 없음) |
+| 음성 전송만으로는 행동의 결과를 즉시 인지하기 어려움 | 녹음 종료 이벤트를 Energy Effect → Flower Emission/Particle sequence로 연결해 입력과 시각적 결과의 인과관계를 표현 |
+| VisionOS/PolySpatial → Android/Oculus/Meta OpenXR 플랫폼 차이 | Package, Loader, Build Target, Input 설정을 함께 전환 |
 
 ---
 
@@ -608,7 +414,8 @@ VisionOS/PolySpatial에서 Android/Oculus/Meta OpenXR로 전환하면서 Package
 
 | 기능 | 코드 | 역할 |
 | --- | --- | --- |
-| Hand Gesture | `Assets/03_Scripts/Gestures/HandGesture.cs` | Hand Shape/Pose 기반 제스처 이벤트 |
+| Hand Gesture | `Assets/03_Scripts/HandGesture.cs` | Hand Shape/Pose 기반 제스처 이벤트 |
+| Recording Trigger | `Assets/03_Scripts/RecordingManager.cs` | `StaticHandGesture`의 Performed/Ended 이벤트를 녹음 시작/종료로 연결 |
 | Static Gesture | `Assets/03_Scripts/Gestures/StaticHandGesture.cs` | 거리 기반 별도 제스처 구현 |
 | Voice Recording | `Assets/03_Scripts/MicRecordFunction/MicComponent.cs` | 녹음, 구간 추출, WAV 변환 |
 | AI WebSocket | `Assets/03_Scripts/Api/WebSocketVoiceClient.cs` | Audio/Trigger WebSocket |
@@ -633,13 +440,15 @@ Assets/
 ├── 03_Scripts/
 │   ├── Api/                   # AI Store, WebSocket, Text UI
 │   ├── AudienceReactDisplay/  # Emotion Color Mapping
+│   ├── Calibration/           # VR Body Calibration
 │   ├── Facial/                # Facial RPC/Application
-│   ├── Gestures/              # XR Hand Gesture
+│   ├── Gestures/              # Distance-based Gesture (legacy path)
 │   ├── LightStickFunction/    # Velocity / Emission
 │   ├── MicRecordFunction/     # Recording / Flower VFX
 │   ├── Photon/                # Fusion Session / Avatar / Performance
 │   ├── Timeline/              # Timeline-related scripts
-│   └── UI/                    # XR UI and interaction UI
+│   ├── UI/                    # XR UI and interaction UI
+│   └── (root)                 # HandGesture, RecordingManager, LightStickComponent 등 아직 하위 폴더로 정리되지 않은 스크립트
 ├── 04_Input Actions/          # Input assets
 ├── Art/                       # Stage, environment, character and VFX assets
 ├── Photon/                    # Fusion project assets
@@ -654,8 +463,6 @@ docs/
 ├── evolution/
 ├── team/
 ├── rnd/
-├── architecture/
-├── experience/
 └── features/
 ```
 
@@ -670,11 +477,68 @@ docs/
 * Photon Fusion App ID 및 Network 설정
 * Artist / Host Client
 * 외부 AI Audio / Trigger WebSocket Server
-* 프로젝트에 포함되지 않은 외부 Asset과 라이선스
 
-기본 Audience Build Scene은 `Assets/01_Scenes/App_Final.unity`입니다. 서버 주소, App ID, 인증 정보는 공개 저장소에 운영값으로 포함하지 않는 것이 안전합니다.
+서버 주소, App ID, 인증 정보는 공개 저장소에 운영값으로 포함하지 않는 것이 안전합니다.
+
+> **Asset License Notice**: 이 저장소에는 캐릭터·무대 텍스처 등 `Assets/Art`, `Assets/Photon`, `MagicaCloth2` 하위의 일부 유료/서드파티 에셋이 포트폴리오 시연 목적으로 함께 커밋되어 있습니다. 해당 에셋을 재배포·재사용할 계획이라면 원 배포처의 라이선스 조건을 먼저 확인해야 합니다.
 
 `VStage_Audience_Snapshot`의 `repectoring` 브랜치에서는 `AIServerConfig`, `PerformanceTimingConfig`, `NetworkConfig` ScriptableObject를 도입했지만, 현재 main과 동일한 상태로 간주하면 안 됩니다.
+
+## Getting Started
+
+1. Unity Hub에서 **Unity 6000.1.2f1** 설치
+2. 저장소는 `.gitattributes`에 정의된 Git LFS(png, fbx, wav, mp4 등)를 사용하므로, clone 전 `git lfs install` 실행
+3. Unity Hub → `Open Project`로 루트 폴더를 열면 `Packages/manifest.json` 기준으로 패키지가 자동 설치됨
+4. `Assets/Photon/Fusion/Resources/PhotonAppSettings.asset`에 본인 Photon Fusion App ID를 입력 (저장소에 포함된 값은 본인 환경에 맞게 교체 필요)
+5. `Assets/03_Scripts/Api/WebSocketVoiceClient.cs`의 `audioWebSocketUrl` / `triggerWebSocketUrl`을 본인 AI 서버 주소로 교체
+6. Build Settings에서 `Assets/01_Scenes/App_Final.unity`가 활성 씬인지 확인
+7. `File > Build Profiles`에서 Android(Meta Quest 3)로 Platform 전환 후, Quest Link/Air Link 또는 USB로 기기를 연결해 Build & Run
+8. VStage Artist/Host Client와 동일한 Photon Room Name으로 접속
+
+AI Audio/Trigger WebSocket 서버와 Artist Host Client 없이는 XR Hand Interaction과 네트워크 아바타 동기화만 로컬에서 확인할 수 있습니다.
+
+---
+
+# Known Limitations
+
+포트폴리오 공개 저장소로 정리하는 과정에서 확인된, 아직 해결되지 않은 부분을 그대로 남겨둡니다.
+
+| 항목 | 현재 상태 |
+| --- | --- |
+| Fusion Callback 빈 구현 | `OnInput` 등 일부 Photon Fusion callback이 빈 구현으로 남아 있음 |
+| `OnConnectRequest` 처리 | 연결 요청을 광범위하게 허용하는 상태로, Room 접근 제어가 느슨함 |
+| 서버 주소 하드코딩 | AI WebSocket 주소가 `WebSocketVoiceClient.cs`에 직접 값으로 들어 있어 환경별 분리가 안 됨 (Audience 최신 스냅샷에서는 `AIServerConfig` ScriptableObject로 분리를 시도했으나 main에는 아직 병합되지 않음) |
+| `EventBus` 활용도 | 구조는 정의되어 있으나 실제 핵심 기능 다수는 여전히 직접 참조·RPC로 연결됨 |
+| `FindObjectOfType` / `GameObject.Find` 의존 | 일부 스크립트가 이름 기반 탐색에 의존하고 있어 씬 구성 변경에 취약함 |
+| 테스트 씬과 Build 씬 분리 | `Assets/01_Scenes`에 기능 검증용 테스트 씬(`RecordEffect`, `EnergyballToFlowerShine` 등)과 실제 Build 씬이 함께 존재함 |
+| 제스처 → 녹음 경로 이원화 | `HandGesture`→`MicComponent`, `StaticHandGesture`→`RecordingManager` 두 경로가 공존하며, 정리 및 단일화가 필요함 |
+
+---
+
+# Award · Exhibition
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+<img src="./docs/achievements/award.jpg" width="100%" alt="가상융합서비스개발자경진대회 우수상">
+
+**가상융합서비스개발자경진대회 우수상**
+<br><sub>연도·주최/주관 확인 중</sub>
+
+</td>
+<td width="50%" align="center">
+
+<img src="./docs/achievements/exhibition-booth.jpg" width="100%" alt="VStage 전시 부스">
+
+**오프라인 전시 부스 운영**
+<br><sub>관람객 대상 XR 콘서트 시스템 시연 · 행사명·기간 확인 중</sub>
+
+</td>
+</tr>
+</table>
+
+세부 정보(수상일, 관련 기사, 전시 장소 등)는 준비 중입니다.
 
 ---
 
@@ -688,18 +552,8 @@ docs/
 
 ## Portfolio Notice
 
-VStage는 팀 프로젝트입니다. 이 README는 프로젝트 전체 구조를 설명하되, 다음 Audience XR Client 영역을 개인 기여 중심으로 정리합니다.
-
-* Vision Pro → Meta Quest 3 플랫폼 전환
-* XR Hands 기반 Audience Interaction
-* Voice Recording / WAV Processing
-* AI WebSocket Integration
-* Host 기반 AI Data Relay
-* Interactive Light Stick
-* Recording Feedback VFX
+VStage는 팀 프로젝트입니다. 이 README는 프로젝트 전체 구조를 설명하되, [My Contribution](#my-contribution)에 정리한 5가지 기능과 Vision Pro → Meta Quest 3 플랫폼 전환 R&D를 개인 기여 중심으로 다룹니다.
 
 Photon Fusion Session, VRIK 전신 기반, Artist 측 얼굴 추적 및 렌더링 기반은 팀 공동 시스템으로 구분합니다. 외부 AI 서버 자체를 개발했다고 주장하지 않으며, AI Emotion이 Stage Lighting을 직접 제어한다고 표현하지 않습니다.
 
-<!-- TODO: docs/architecture/system-architecture.png로 Mermaid를 디자인 이미지로 교체할 수 있음 -->
-<!-- TODO: docs/ 관련 실제 이미지·영상·뉴스 링크 추가 -->
-<!-- TODO: 최종 팀원 정보·평가별 영상·수상 연도·전시 정보 추가 -->
+<!-- TODO: docs/features, docs/team 실제 이미지 채우기 / 평가별 영상·수상 연도·전시 정보 확정되는 대로 업데이트 -->
